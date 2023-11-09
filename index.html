@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Tetris Game</title>
+    <style>
+        .game {
+            width: 400px;
+            height: 600px;
+            margin: 0 auto;
+            border: 1px solid black;
+            position: relative;
+        }
+        .cell {
+            width: 25px;
+            height: 25px;
+            border: 1px solid black;
+            box-sizing: border-box;
+            float: left;
+        }
+    </style>
+</head>
+<body>
+    <div class="game"></div>
+    <script>
+        const game = document.querySelector('.game');
+        const gameArea = 400;
+        const cells = [];
+        let activePiece = '';
+
+        for (let i = 0; i < gameArea; i++) {
+            const cell = document.createElement('div');
+            cell.classList.add('cell');
+            game.appendChild(cell);
+            cells.push(cell);
+        }
+
+        function randomPiece() {
+            const shapes = [
+                [[1, 1], [1, 2], [1, 3]],
+                [[1, 1], [2, 1], [3, 1]],
+                [[1, 1], [2, 1], [3, 1]],
+                [[1, 1], [1, 2], [2, 2]],
+                [[1, 1], [2, 1], [1, 2]],
+                [[1, 1], [2, 1], [1, 2]],
+                [[1, 1], [1, 2], [2, 2]],
+            ];
+            return shapes[Math.floor(Math.random() * shapes.length)];
+        }
+
+        function drawPiece(piece) {
+            for (let i = 0; i < piece.length; i++) {
+                const [x, y] = piece[i];
+                cells[gameArea / 4 * y + x].style.backgroundColor = 'red';
