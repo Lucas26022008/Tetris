@@ -1,138 +1,17 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Tetris Game</title>
-    <style>
-        .game {
-            width: 400px;
-            height: 600px;
-            margin: 0 auto;
-            border: 1px solid black;
-            position: relative;
-        }
-        .cell {
-            width: 25px;
-            height: 25px;
-            border: 1px solid black;
-            box-sizing: border-box;
-            float: left;
-        }
-    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Match-3 Game</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="game"></div>
-    <script>
-        const game = document.querySelector('.game');
-        const gameArea = 400;
-        const cells = [];
-        let activePiece = '';
+    <div class="game-board">
+        <!-- As peças serão geradas dinamicamente com JavaScript -->
+    </div>
+    <button id="b-reiniciar">Reiniciar</button>
 
-        for (let i = 0; i < gameArea; i++) {
-            const cell = document.createElement('div');
-            cell.classList.add('cell');
-            game.appendChild(cell);
-            cells.push(cell);
-        }
-
-        function randomPiece() {
-            const shapes = [
-                [[1, 1], [1, 2], [1, 3]],
-                [[1, 1], [2, 1], [3, 1]],
-                [[1, 1], [2, 1], [3, 1]],
-                [[1, 1], [1, 2], [2, 2]],
-                [[1, 1], [2, 1], [1, 2]],
-                [[1, 1], [2, 1], [1, 2]],
-                [[1, 1], [1, 2], [2, 2]],
-            ];
-            return shapes[Math.floor(Math.random() * shapes.length)];
-        }
-
-        function drawPiece(piece) {
-            for (let i = 0; i < piece.length; i++) {
-                const [x, y] = piece[i];
-                cells[gameArea / 4 * y + x].style.backgroundColor = 'red';
-            }
-        }
-
-        function clearPiece(piece) {
-            for (let i =             }
-       0; i }
- < piece
-       .length; function clear i++)Pie {
-ce               ( constpiece [)x {, y
-]            = piece[i]; for
- (                cellslet i[game =Area  / 0;4 * i < y + piece x]..style.lengthbackgroundColor; = ''; i++)
- {            }
-
-                       }
-
-        function update() {
-            if const (active [Pxie, yce) {] = piece[
-i                clear];
-P               iece cells(active[PiegameAreace /);
-                 activePiece[0][14 *]++;
-                y + x if (check].Collisionstyle.(activebackgroundColorPie = '';ce))
- {
-                            }    active
-       Pie }ce[
-
-        function0 rotate][1P]--iece;
-(                   pie clearIntervalce)(game {Loop);
-           
-                 const    game rotatedPieceLoop = setInterval(update =,  piece.50map0);(([
-               x }
-,                y drawP]) => [yie,ce( -xactiveP]);
-iece);           
-            } else {
-                active returnP rotieceatedPiece;
- =        randomP }iece
-
-();
-                   function can }
-       Place }
-Pie
-       ce function checkCollision(piece, posX(pie, posce)Y {
-)            for {
- (let            i for =  (let0; i i = < piece .0; i <length piece; i.length++) {;
-                i++) const [ {x
-, y               ] const [ = piece[xi, y];
-]                if = (y piece === [i3]; || cells
-               [game constArea / cell 4 = cells * ([gamey +Area 1 / 4 * () + x].style.backgroundColor) {
-                y    return + pos true;Y
-               ) + }
- (x            } +
-            posX return false)];
-;
-                       } if (
-
-y        let + gameLoop pos = setInterval(update, 5Y00 >= );
-   0 && </script x + posX> >=
-</ 0body &&>
- y</html + pos>
-Y <```
- game
-In this Tetris game,Area we /  use HTML4 && and CSS x to create + pos the gameX area and < each cell gameArea within / it. 4 JavaScript is && used to cell. control thestyle game.backgroundColor) {'
-s logic, such as creating pieces,                    drawing them return, updating false; their position
-, checking                } for coll
-           isions, }
- and clear            returning completed lines true. The;
- game starts        by generating } a random piece,
- and the
-        function newPie activece piece continu() {ously falls
- until it            active hits thePie bottom or anotherce piece. = random Once thePie active piecece has();
- landed           , a drawP new oneie is generatedce(.activePiece);
-            const timer = setInterval(() => {
-                clearPiece(activePiece);
-                if (canPlacePiece(activePiece, 0, 1)) {
-                    activePiece = rotatePiece(activePiece);
-                } else {
-                    clearInterval(timer);
-                    newPiece();
-                }
-            }, 1000);
-        }
-
-        newPiece();
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
