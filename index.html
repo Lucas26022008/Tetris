@@ -1,17 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Match-3 Game</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simple Example</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+    .container {
+      width: 80%;
+      margin: auto;
+      overflow: hidden;
+    }
+    .box {
+      width: 30%;
+      height: 100px;
+      float: left;
+      margin: 10px;
+      background-color: #f1f1f1;
+      text-align: center;
+      line-height: 100px;
+      font-size: 30px;
+    }
+  </style>
 </head>
 <body>
-    <div class="game-board">
-        <!-- As peças serão geradas dinamicamente com JavaScript -->
-    </div>
-    <button id="b-reiniciar">Reiniciar</button>
+  <div class="container">
+    <div class="box" id="box1">Box 1</div>
+    <div class="box" id="box2">Box 2</div>
+    <div class="box" id="box3">Box 3</div>
+  </div>
 
-    <script src="script.js"></script>
+  <script>
+    const boxes = document.querySelectorAll('.box');
+
+    boxes.forEach((box) => {
+      box.addEventListener('click', () => {
+        box.style.backgroundColor = '#333';
+        box.style.color = '#fff';
+      });
+    });
+  </script>
 </body>
 </html>
